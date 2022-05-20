@@ -9,6 +9,6 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Build Project
-        run: ./mvnw clean --batch-mode package
+        run: ./mvnw clean --batch-mode package -DskipTests
