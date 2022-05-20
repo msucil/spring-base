@@ -10,5 +10,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: 'maven'
       - name: Build Project
         run: ./mvnw clean --batch-mode package -DskipTests
