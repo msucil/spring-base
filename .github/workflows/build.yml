@@ -12,4 +12,4 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Build Project
-        run: ./mvnw clean --batch-mode package -DskipTests
+        run: ./mvnw clean --batch-mode package
