@@ -12,9 +12,10 @@
 	<artifactId>spring-base</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-base</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Spring Boot Base Project</description>
 	<properties>
 		<java.version>17</java.version>
+
 		<testcontainers.version>1.17.2</testcontainers.version>
 	</properties>
 	<dependencies>
@@ -94,6 +95,16 @@
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
