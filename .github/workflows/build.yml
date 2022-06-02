@@ -13,8 +13,3 @@ jobs:
           cache: 'maven'
       - name: Build Project
         run: ./mvnw clean --batch-mode install
-      - name: Publish RestDocs
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: gh-pages
-          folder: target/generated-docs
