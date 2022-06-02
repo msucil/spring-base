@@ -1,0 +1,41 @@
+= API GUIDE
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+== Overview
+
+[[overview_http_verbs]]
+== HTTP Verbs
+|===
+|Verb|Usage
+|`GET`| Used to retrieve a resource
+|`POST`| Used to create a new resource
+|`PATCH`|Used to update an existing resource, including partial updates
+|`DELETE`|Used to delete an existing resource
+|===
+
+[[overview_http_status_codes]]
+== HTTP Status Codes
+|===
+|Status Code|Usage
+|`200 OK`| The request completed successfully
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+| `404 Not Found`
+| The requested resource did not exist
+|`500 Server Error`| An error occurred while processing request
+|===
+
+[[Index]]
+include::{snippets}/index/http-request.adoc[]
+include::{snippets}/index/http-response.adoc[]
