@@ -6,10 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
-import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration
-@AutoConfigureRestDocs(uriHost = "", uriPort = 80)
+@AutoConfigureRestDocs
 public abstract class BaseApiTest {
 
     @Autowired
