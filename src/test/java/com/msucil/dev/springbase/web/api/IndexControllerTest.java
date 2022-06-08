@@ -10,7 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.msucil.dev.springbase.config.web.BaseApiTest;
+import com.msucil.dev.springbase.core.BaseApiTest;
 
 @WebMvcTest(value = IndexController.class)
 class IndexControllerTest extends BaseApiTest {

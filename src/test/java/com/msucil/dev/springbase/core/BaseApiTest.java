@@ -1,4 +1,4 @@
-package com.msucil.dev.springbase.config.web;
+package com.msucil.dev.springbase.core;
 
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 

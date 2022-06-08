@@ -20,8 +20,8 @@ public class SecurityConfig {
             .formLogin().disable()
             .authorizeHttpRequests(
                 authorize -> authorize
-                    .antMatchers("/api/v1/**").permitAll()
-                    .anyRequest().permitAll()
+                    .antMatchers("/api/v1/index").permitAll()
+                    .anyRequest().authenticated()
             );
 
         return http.build();
