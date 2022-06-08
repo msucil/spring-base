@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5452/spring-base
-    username: user
+    url: jdbc:postgresql://localhost:5432/spring_base
+    username: postgres
     password: root
   liquibase:
     enabled: true

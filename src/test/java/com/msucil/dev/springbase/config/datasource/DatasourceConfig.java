@@ -3,11 +3,9 @@ package com.msucil.dev.springbase.config.datasource;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-@Configuration
 public class DatasourceConfig {
 
     @Bean
