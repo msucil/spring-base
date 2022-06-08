@@ -43,12 +43,13 @@ public class User implements
     @Column(length = 50, unique = true, nullable = false)
     private String username;
 
-    @NotNull
+    @NotEmptyValue
     private String password;
 
     @Size(max = 50)
     private String fullName;
 
+    @NotEmptyValue
     @Email
     @Size(min = 5, max = 254)
     @Column(length = 254, unique = true)
