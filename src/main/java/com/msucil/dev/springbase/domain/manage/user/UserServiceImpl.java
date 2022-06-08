@@ -2,17 +2,15 @@ package com.msucil.dev.springbase.domain.manage.user;
 
 import javax.transaction.Transactional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class UserServiceImpl implements UserCommandService {
 
     private final UserRepository repository;
-
-    public UserServiceImpl(UserRepository repository) {
-        this.repository = repository;
-    }
 
     @Override
     public User save(User user) {
