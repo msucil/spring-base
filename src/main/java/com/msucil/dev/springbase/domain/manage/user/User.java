@@ -1,7 +1,8 @@
 package com.msucil.dev.springbase.domain.manage.user;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
 import javax.persistence.Column;
@@ -68,16 +69,16 @@ public class User implements
     @Column(nullable = false)
     private boolean credentialsNonExpired = true;
 
-    private Instant credentialsExpiryDate;
+    private LocalDateTime credentialsExpiryDate;
 
     @Version
     private int version = 0;
 
     @CreatedDate
-    private Instant createdAt = Instant.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @LastModifiedDate
-    private Instant lastModifiedAt = Instant.now();
+    private LocalDateTime lastModifiedAt = LocalDateTime.now();
 
     private boolean permanentDelete = false;
 
@@ -159,11 +160,11 @@ public class User implements
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
-    public Instant getCredentialsExpiryDate() {
+    public LocalDateTime getCredentialsExpiryDate() {
         return credentialsExpiryDate;
     }
 
-    public void setCredentialsExpiryDate(Instant credentialsExpiryDate) {
+    public void setCredentialsExpiryDate(LocalDateTime credentialsExpiryDate) {
         this.credentialsExpiryDate = credentialsExpiryDate;
     }
 
@@ -175,19 +176,19 @@ public class User implements
         this.version = version;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Instant getLastModifiedAt() {
+    public LocalDateTime getLastModifiedAt() {
         return lastModifiedAt;
     }
 
-    public void setLastModifiedAt(Instant lastModifiedAt) {
+    public void setLastModifiedAt(LocalDateTime lastModifiedAt) {
         this.lastModifiedAt = lastModifiedAt;
     }
 

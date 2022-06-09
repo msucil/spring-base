@@ -8,11 +8,15 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.context.annotation.Import;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.msucil.dev.springbase.config.security.SecurityConfig;
 
 @AutoConfigureRestDocs
-@Import(SecurityConfig.class)
+@Import(value = {SecurityConfig.class})
 public abstract class BaseApiTest {
+
+    @Autowired
+    protected ObjectMapper objectMapper;
 
     @Autowired
     protected MockMvcRestDocumentationConfigurer customizer;
