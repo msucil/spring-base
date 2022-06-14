@@ -3,6 +3,7 @@ package com.msucil.dev.springbase.web.api.v1.manage.user;
 import java.util.List;
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.msucil.dev.springbase.domain.manage.user.User;
 import com.msucil.dev.springbase.domain.manage.user.UserCommandService;
@@ -43,6 +45,12 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user) {
+        final var data = queryService.findById(id);
+
+        if (data.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Record Not Found");
+        }
+
         return ResponseEntity.ok(commandService.update(user));
     }
 

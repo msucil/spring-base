@@ -2,7 +2,6 @@ package com.msucil.dev.springbase.domain.manage.user;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
 import javax.persistence.Column;
@@ -31,8 +30,7 @@ import com.msucil.dev.springbase.core.validator.notemptyvalue.NotEmptyValue;
 @Entity
 @Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
-public class User implements
-    UserDetails, Serializable {
+public class User implements UserDetails, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

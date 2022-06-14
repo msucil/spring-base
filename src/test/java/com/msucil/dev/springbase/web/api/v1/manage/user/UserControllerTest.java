@@ -7,8 +7,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -68,18 +71,96 @@ class UserControllerTest extends BaseApiTest {
 
         when(userCommandService.save(any(User.class))).thenReturn(saved);
 
-        final var userCaptor = ArgumentCaptor.forClass(User.class);
-
         mvc.perform(MockMvcRequestBuilders.post("/api/v1/manage/users").content(
                 objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk()).andExpect(jsonPath("$.id").isNumber())
             .andExpect(jsonPath("$.id").value("1"));
 
+        final var userCaptor = ArgumentCaptor.forClass(User.class);
         verify(userCommandService, times(1)).save(userCaptor.capture());
 
         assertThat(userCaptor.getValue().getEmail(), equalTo(user.getEmail()));
         assertThat(userCaptor.getValue().getPassword(), equalTo(user.getPassword()));
 
 //        https://reflectoring.io/spring-boot-web-controller-test/
+    }
+
+    @Test
+    @WithMockUser
+    void testCreateUserShouldReturnBadRequestOnValidationError() throws Exception {
+        final var user = new User();
+
+        mvc.perform(MockMvcRequestBuilders.post("/api/v1/manage/users").content(
+                objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    @WithMockUser
+    void testUpdateUserShouldReturnBadRequestOnInvalidId() throws Exception {
+        final var user = new User();
+        user.setId(1L);
+        user.setUsername("username");
+        user.setEmail("email@gmail.com");
+        user.setFullName("System");
+        user.setPassword("Password");
+
+        when(userQueryService.findById(1L)).thenReturn(Optional.empty());
+
+        mvc.perform(MockMvcRequestBuilders.put("/api/v1/manage/users/1")
+                .content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest());
+
+        final var idCaptor = ArgumentCaptor.forClass(Long.class);
+        verify(userQueryService, times(1)).findById(idCaptor.capture());
+
+        assertThat(idCaptor.getValue(), equalTo(1L));
+    }
+
+    @Test
+    @WithMockUser
+    void testUpdateUserShouldReturnShouldUpdateUser() throws Exception {
+        final var user = new User();
+        user.setId(1L);
+        user.setUsername("username");
+        user.setEmail("email@gmail.com");
+        user.setFullName("System");
+        user.setPassword("Password");
+
+        when(userQueryService.findById(1L)).thenReturn(Optional.of(user));
+        when(userCommandService.update(any(User.class))).thenReturn(user);
+
+        mvc.perform(MockMvcRequestBuilders.put("/api/v1/manage/users/1")
+                .content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(1L));
+
+        final var idCaptor = ArgumentCaptor.forClass(Long.class);
+        verify(userQueryService, times(1)).findById(idCaptor.capture());
+
+        assertThat(idCaptor.getValue(), equalTo(1L));
+
+        final var userCaptor = ArgumentCaptor.forClass(User.class);
+        verify(userCommandService, times(1)).update(userCaptor.capture());
+
+        assertThat(userCaptor.getValue().getEmail(), equalTo(user.getEmail()));
+        assertThat(userCaptor.getValue().getPassword(), equalTo(user.getPassword()));
+    }
+
+    @Test
+    @WithMockUser
+    void testDeleteUserShouldReturnShouldUpdateUser() throws Exception {
+        final var user = new User();
+        user.setId(1L);
+        user.setUsername("username");
+        user.setEmail("email@gmail.com");
+        user.setFullName("System");
+        user.setPassword("Password");
+
+        when(userQueryService.findById(1L)).thenReturn(Optional.of(user));
+        when(userCommandService.update(any(User.class))).thenReturn(user);
+
+        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/manage/users/1"))
+            .andExpect(status().isOk()).andExpect(content().string("User deleted successfully"));
     }
 }
