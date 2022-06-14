@@ -39,3 +39,4 @@
 [[Index]]
 include::{snippets}/index/http-request.adoc[]
 include::{snippets}/index/http-response.adoc[]
+include::users.adoc[]

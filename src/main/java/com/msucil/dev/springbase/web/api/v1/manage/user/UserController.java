@@ -1,6 +1,5 @@
 package com.msucil.dev.springbase.web.api.v1.manage.user;
 
-import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.msucil.dev.springbase.core.web.ResponseDetail;
 import com.msucil.dev.springbase.domain.manage.user.User;
 import com.msucil.dev.springbase.domain.manage.user.UserCommandService;
 import com.msucil.dev.springbase.domain.manage.user.UserQueryService;
@@ -26,37 +26,48 @@ public class UserController {
     private final UserQueryService queryService;
     private final UserCommandService commandService;
 
-    public UserController(
-        UserQueryService queryService,
-        UserCommandService commandService) {
+    public UserController(UserQueryService queryService, UserCommandService commandService) {
         this.queryService = queryService;
         this.commandService = commandService;
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> index() {
-        return ResponseEntity.ok(queryService.findAll());
+    public ResponseEntity<ResponseDetail> index() {
+        return ResponseEntity.ok(
+            ResponseDetail.builder().status(HttpStatus.OK.value()).detail(queryService.findAll())
+                .build());
     }
 
     @PostMapping
-    public ResponseEntity<User> save(@Valid @RequestBody User user) {
-        return ResponseEntity.ok(commandService.save(user));
+    public ResponseEntity<ResponseDetail> save(@Valid @RequestBody User user) {
+        return ResponseEntity.ok(
+            ResponseDetail.builder().status(HttpStatus.OK.value()).detail(commandService.save(user))
+                .build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user) {
+    public ResponseEntity<ResponseDetail> update(@PathVariable Long id,
+        @Valid @RequestBody User user) {
         final var data = queryService.findById(id);
 
         if (data.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Record Not Found");
         }
 
-        return ResponseEntity.ok(commandService.update(user));
+        return ResponseEntity.ok(ResponseDetail.builder()
+            .status(HttpStatus.OK.value())
+            .detail(commandService.update(user))
+            .build()
+        );
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
+    public ResponseEntity<ResponseDetail> delete(@PathVariable Long id) {
         commandService.delete(id);
-        return ResponseEntity.ok("User deleted successfully");
+        return ResponseEntity.ok(ResponseDetail.builder()
+            .status(HttpStatus.OK.value())
+            .detail("User Deleted Successfully")
+            .build()
+        );
     }
 }

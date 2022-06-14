@@ -1,0 +1,17 @@
+[[manage-users]]
+== Manage Users
+=== Create User
+include::{snippets}/manage/users/create/success/http-request.adoc[]
+include::{snippets}/manage/users/create/validation-failed/http-response.adoc[]
+include::{snippets}/manage/users/create/success/http-response.adoc[]
+
+=== Update User
+include::{snippets}/manage/users/update/not-found/http-request.adoc[]
+include::{snippets}/manage/users/update/not-found/http-response.adoc[]
+include::{snippets}/manage/users/update/success/http-response.adoc[]
+
+=== Delete User
+include::{snippets}/manage/users/delete/success/http-request.adoc[]
+include::{snippets}/manage/users/delete/success/http-response.adoc[]
+
+
