@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>API GUIDE</title>
+<title>Manage Users</title>
 <link rel="stylesheet" href="css/site.css">
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
 </head>
-<body class="book toc2 toc-left"><div id="banner-container" class="container" role="banner">
+<body class="book"><div id="banner-container" class="container" role="banner">
   <div id="banner" class="contained" role="banner">
     <div id="switch-theme">
       <input type="checkbox" id="switch-theme-checkbox" />
@@ -27,132 +27,13 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>API GUIDE</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#overview">Overview</a></li>
-<li><a href="#overview_http_verbs">HTTP Verbs</a></li>
-<li><a href="#overview_http_status_codes">HTTP Status Codes</a></li>
-<li><a href="#manage-users">Manage Users</a>
-<ul class="sectlevel2">
-<li><a href="#_create_user">Create User</a></li>
-<li><a href="#_update_user">Update User</a></li>
-<li><a href="#_delete_user">Delete User</a></li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="overview"><a class="anchor" href="#overview"></a><a class="link" href="#overview">Overview</a></h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview_http_verbs"><a class="anchor" href="#overview_http_verbs"></a><a class="link" href="#overview_http_verbs">HTTP Verbs</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verb</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usage</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to retrieve a resource</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create a new resource</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PATCH</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to update an existing resource, including partial updates</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DELETE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to delete an existing resource</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview_http_status_codes"><a class="anchor" href="#overview_http_status_codes"></a><a class="link" href="#overview_http_status_codes">HTTP Status Codes</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usage</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>200 OK</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The request completed successfully</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>201 Created</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A new resource has been created successfully. The resource&#8217;s URI is available from the response&#8217;s
-<code>Location</code> header</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>204 No Content</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An update to an existing resource has been applied successfully</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>400 Bad Request</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The request was malformed. The response body will include an error providing further information</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>404 Not Found</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The requested resource did not exist</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500 Server Error</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An error occurred while processing request</p></td>
-</tr>
-</tbody>
-</table>
-<div id="Index" class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/index HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 17
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-X-Frame-Options: DENY
-
-Hello Spring Base</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="manage-users"><a class="anchor" href="#manage-users"></a><a class="link" href="#manage-users">Manage Users</a></h2>
+<h2 id="manage-users"><a class="anchor" href="#manage-users"></a>Manage Users</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_create_user"><a class="anchor" href="#_create_user"></a><a class="link" href="#_create_user">Create User</a></h3>
+<h3 id="_create_user"><a class="anchor" href="#_create_user"></a>Create User</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/v1/manage/users HTTP/1.1
@@ -257,7 +138,7 @@ Content-Length: 653
 </div>
 </div>
 <div class="sect2">
-<h3 id="_update_user"><a class="anchor" href="#_update_user"></a><a class="link" href="#_update_user">Update User</a></h3>
+<h3 id="_update_user"><a class="anchor" href="#_update_user"></a>Update User</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /api/v1/manage/users/1 HTTP/1.1
@@ -337,7 +218,7 @@ Content-Length: 653
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delete_user"><a class="anchor" href="#_delete_user"></a><a class="link" href="#_delete_user">Delete User</a></h3>
+<h3 id="_delete_user"><a class="anchor" href="#_delete_user"></a>Delete User</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /api/v1/manage/users/1 HTTP/1.1
@@ -377,13 +258,6 @@ Content-Length: 205
 Last updated 2022-06-14 12:13:25 UTC
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
 </div>
   </div>
 </div>
