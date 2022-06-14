@@ -78,7 +78,8 @@ class UserControllerTest extends BaseApiTest {
                 objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk()).andExpect(jsonPath("$.detail.id").isNumber())
             .andExpect(jsonPath("$.status").value(200))
-            .andExpect(jsonPath("$.detail.id").value("1"));
+            .andExpect(jsonPath("$.detail.id").value("1"))
+            .andDo(document("manage/users/create/success"));
 
         final var userCaptor = ArgumentCaptor.forClass(User.class);
         verify(userCommandService, times(1)).save(userCaptor.capture());
