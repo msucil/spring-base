@@ -4,4 +4,32 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
+  <changeSet id="create-user-table-20220606" author="msucil">
+    <createTable tableName="users">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="username" type="VARCHAR(50)">
+        <constraints nullable="false" unique="true" uniqueConstraintName="udx_users_username"/>
+      </column>
+      <column name="password" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="full_name" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="email" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="enabled" type="BOOLEAN" defaultValueBoolean="true"/>
+      <column name="account_non_expired" type="BOOLEAN" defaultValueBoolean="true"/>
+      <column name="account_non_locked" type="BOOLEAN" defaultValueBoolean="true"/>
+      <column name="credentials_non_expired" type="BOOLEAN" defaultValueBoolean="true"/>
+      <column name="credentials_expiry_date" type="TIMESTAMP"/>
+      <column name="version" type="INT" defaultValue="0"/>
+      <column name="created_at" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP"/>
+      <column name="last_modified_at" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP"/>
+      <column name="permanent_delete" type="BOOLEAN" defaultValueBoolean="false"/>
+    </createTable>
+  </changeSet>
 </databaseChangeLog>
