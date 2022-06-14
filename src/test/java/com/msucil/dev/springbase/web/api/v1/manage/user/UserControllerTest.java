@@ -7,7 +7,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,6 +28,9 @@ import com.msucil.dev.springbase.domain.manage.user.User;
 import com.msucil.dev.springbase.domain.manage.user.UserCommandService;
 import com.msucil.dev.springbase.domain.manage.user.UserQueryService;
 
+/**
+ * ref: https://reflectoring.io/spring-boot-web-controller-test/
+ */
 @WebMvcTest(UserController.class)
 class UserControllerTest extends BaseApiTest {
 
@@ -73,8 +76,9 @@ class UserControllerTest extends BaseApiTest {
 
         mvc.perform(MockMvcRequestBuilders.post("/api/v1/manage/users").content(
                 objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.id").isNumber())
-            .andExpect(jsonPath("$.id").value("1"));
+            .andExpect(status().isOk()).andExpect(jsonPath("$.detail.id").isNumber())
+            .andExpect(jsonPath("$.status").value(200))
+            .andExpect(jsonPath("$.detail.id").value("1"));
 
         final var userCaptor = ArgumentCaptor.forClass(User.class);
         verify(userCommandService, times(1)).save(userCaptor.capture());
@@ -82,7 +86,7 @@ class UserControllerTest extends BaseApiTest {
         assertThat(userCaptor.getValue().getEmail(), equalTo(user.getEmail()));
         assertThat(userCaptor.getValue().getPassword(), equalTo(user.getPassword()));
 
-//        https://reflectoring.io/spring-boot-web-controller-test/
+
     }
 
     @Test
@@ -92,8 +96,13 @@ class UserControllerTest extends BaseApiTest {
 
         mvc.perform(MockMvcRequestBuilders.post("/api/v1/manage/users").content(
                 objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isBadRequest());
-
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.status").value(400))
+            .andExpect(jsonPath("$.title").value("Validation Failed"))
+            .andExpect(jsonPath("$.errorCount").value(3))
+            .andExpect(jsonPath("$.errors").isArray())
+            .andExpect(jsonPath("$.path").value("/api/v1/manage/users"))
+            .andDo(document("manage/users/create/validation-failed"));
     }
 
     @Test
@@ -110,7 +119,7 @@ class UserControllerTest extends BaseApiTest {
 
         mvc.perform(MockMvcRequestBuilders.put("/api/v1/manage/users/1")
                 .content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isBadRequest());
+            .andExpect(status().isBadRequest()).andDo(document("manage/users/update/not-found"));
 
         final var idCaptor = ArgumentCaptor.forClass(Long.class);
         verify(userQueryService, times(1)).findById(idCaptor.capture());
@@ -133,7 +142,8 @@ class UserControllerTest extends BaseApiTest {
 
         mvc.perform(MockMvcRequestBuilders.put("/api/v1/manage/users/1")
                 .content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(1L));
+            .andExpect(status().isOk()).andExpect(jsonPath("$.detail.id").value(1L))
+            .andDo(document("manage/users/update/success"));
 
         final var idCaptor = ArgumentCaptor.forClass(Long.class);
         verify(userQueryService, times(1)).findById(idCaptor.capture());
@@ -161,6 +171,8 @@ class UserControllerTest extends BaseApiTest {
         when(userCommandService.update(any(User.class))).thenReturn(user);
 
         mvc.perform(MockMvcRequestBuilders.delete("/api/v1/manage/users/1"))
-            .andExpect(status().isOk()).andExpect(content().string("User deleted successfully"));
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.detail").value("User Deleted Successfully"))
+            .andDo(document("manage/users/delete/success"));
     }
 }
