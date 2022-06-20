@@ -1,3 +1,9 @@
+[[system-user]]
+== Register System User
+include::{snippets}/system/users/create/validation-error/http-response.adoc[]
+include::{snippets}/system/users/create/forbidden-error/http-response.adoc[]
+include::{snippets}/system/users/create/success/http-response.adoc[]
+
 [[manage-users]]
 == Manage Users
 === Create User

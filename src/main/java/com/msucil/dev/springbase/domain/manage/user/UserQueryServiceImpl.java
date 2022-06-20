@@ -21,4 +21,9 @@ public class UserQueryServiceImpl implements UserQueryService {
     public Optional<User> findById(Long id) {
         return repository.findById(id);
     }
+
+    @Override
+    public boolean canRegisterSystemUser() {
+        return repository.count() < 1;
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.msucil.dev.springbase.config.security.SecurityConfig;
+import com.msucil.dev.springbase.core.exception.handler.ValidationExceptionHandler;
 
 @AutoConfigureRestDocs
 @Import(value = {SecurityConfig.class})
