@@ -162,18 +162,18 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 907
+Content-Length: 908
 
 {
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-06-20T12:01:40.80310886",
+  "timestamp" : "2022-06-20T12:06:15.737940503",
   "errorCount" : 6,
   "errors" : [ {
-    "field" : "password",
+    "field" : "username",
     "rejectedValue" : null,
-    "message" : "Properties does not match"
+    "message" : " can not be null or blank"
   }, {
     "field" : "password",
     "rejectedValue" : null,
@@ -183,17 +183,17 @@ Content-Length: 907
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "email",
-    "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
     "field" : "verifyPassword",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "username",
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
+  }, {
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : "Properties does not match"
   } ],
   "message" : "Request can not be processed due to one or more validation error",
   "path" : "/api/v1/system/users"
@@ -210,13 +210,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 246
+Content-Length: 247
 
 {
   "status" : 403,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2022-06-20T12:01:40.84108746",
+  "timestamp" : "2022-06-20T12:06:15.814248477",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Can not create System User. Users already exists.",
@@ -251,12 +251,12 @@ Content-Length: 655
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:01:40.376355032",
-    "lastModifiedAt" : "2022-06-20T12:01:40.376395032",
+    "createdAt" : "2022-06-20T12:06:15.055178343",
+    "lastModifiedAt" : "2022-06-20T12:06:15.055214244",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:01:40.652653462",
+  "timestamp" : "2022-06-20T12:06:15.451772273",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -290,8 +290,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-20T12:01:41.731491813",
-  "lastModifiedAt" : "2022-06-20T12:01:41.731507213",
+  "createdAt" : "2022-06-20T12:06:17.206867089",
+  "lastModifiedAt" : "2022-06-20T12:06:17.206884089",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -313,10 +313,10 @@ Content-Length: 587
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-06-20T12:01:41.695208017",
+  "timestamp" : "2022-06-20T12:06:17.185412912",
   "errorCount" : 3,
   "errors" : [ {
-    "field" : "password",
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -324,7 +324,7 @@ Content-Length: 587
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "username",
+    "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -343,7 +343,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 652
+Content-Length: 653
 
 {
   "status" : 200,
@@ -360,12 +360,12 @@ Content-Length: 652
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:01:41.731525213",
-    "lastModifiedAt" : "2022-06-20T12:01:41.731530213",
+    "createdAt" : "2022-06-20T12:06:17.206904389",
+    "lastModifiedAt" : "2022-06-20T12:06:17.206910489",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:01:41.73803773",
+  "timestamp" : "2022-06-20T12:06:17.210567902",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -395,8 +395,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-20T12:01:41.757823983",
-  "lastModifiedAt" : "2022-06-20T12:01:41.757836683",
+  "createdAt" : "2022-06-20T12:06:17.256652868",
+  "lastModifiedAt" : "2022-06-20T12:06:17.256672268",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -418,7 +418,7 @@ Content-Length: 216
   "status" : 400,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2022-06-20T12:01:41.765267102",
+  "timestamp" : "2022-06-20T12:06:17.272089024",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Record Not Found",
@@ -453,12 +453,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:01:41.811802225",
-    "lastModifiedAt" : "2022-06-20T12:01:41.811814425",
+    "createdAt" : "2022-06-20T12:06:17.352565616",
+    "lastModifiedAt" : "2022-06-20T12:06:17.352582416",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:01:41.815041634",
+  "timestamp" : "2022-06-20T12:06:17.359891143",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -485,13 +485,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 203
+Content-Length: 205
 
 {
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2022-06-20T12:01:41.8020687",
+  "timestamp" : "2022-06-20T12:06:17.326148619",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -505,7 +505,7 @@ Content-Length: 203
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-20 12:01:21 UTC
+Last updated 2022-06-20 12:05:34 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
