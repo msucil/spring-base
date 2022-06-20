@@ -21,6 +21,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(
                 authorize -> authorize
                     .antMatchers("/api/v1/index").permitAll()
+                    .antMatchers("/api/v1/system/users").permitAll()
                     .anyRequest().authenticated()
             );
 
