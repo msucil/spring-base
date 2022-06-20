@@ -13,3 +13,9 @@ jobs:
           cache: 'maven'
       - name: Build Project
         run: ./mvnw clean --batch-mode install
+      - name: Code Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
+          verbious: true
+          path_to_write_report: ./coverage/coverage-report.txt
