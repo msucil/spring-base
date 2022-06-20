@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Manage Users</title>
+<title>Register System User</title>
 <link rel="stylesheet" href="css/site.css">
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
@@ -30,6 +30,123 @@
 </div>
 <div id="content">
 <div class="sect1">
+<h2 id="system-user"><a class="anchor" href="#system-user"></a>Register System User</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 907
+
+{
+  "status" : 400,
+  "title" : "Validation Failed",
+  "detail" : null,
+  "timestamp" : "2022-06-20T12:01:40.80310886",
+  "errorCount" : 6,
+  "errors" : [ {
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : "Properties does not match"
+  }, {
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "fullName",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "email",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "verifyPassword",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "username",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  } ],
+  "message" : "Request can not be processed due to one or more validation error",
+  "path" : "/api/v1/system/users"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 403 Forbidden
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 246
+
+{
+  "status" : 403,
+  "title" : null,
+  "detail" : null,
+  "timestamp" : "2022-06-20T12:01:40.84108746",
+  "errorCount" : 0,
+  "errors" : null,
+  "message" : "Can not create System User. Users already exists.",
+  "path" : "/api/v1/system/users"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 655
+
+{
+  "status" : 200,
+  "title" : null,
+  "detail" : {
+    "id" : 1,
+    "username" : "system",
+    "password" : "123456",
+    "fullName" : "System User",
+    "email" : "system@sytem.com",
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true,
+    "credentialsExpiryDate" : null,
+    "version" : 0,
+    "createdAt" : "2022-06-20T12:01:40.376355032",
+    "lastModifiedAt" : "2022-06-20T12:01:40.376395032",
+    "permanentDelete" : false,
+    "authorities" : [ ]
+  },
+  "timestamp" : "2022-06-20T12:01:40.652653462",
+  "errorCount" : 0,
+  "errors" : null,
+  "message" : null,
+  "path" : null
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="manage-users"><a class="anchor" href="#manage-users"></a>Manage Users</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -53,8 +170,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-14T12:13:39.056247782",
-  "lastModifiedAt" : "2022-06-14T12:13:39.056265482",
+  "createdAt" : "2022-06-20T12:01:41.731491813",
+  "lastModifiedAt" : "2022-06-20T12:01:41.731507213",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -76,10 +193,10 @@ Content-Length: 587
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-06-14T12:13:39.001990399",
+  "timestamp" : "2022-06-20T12:01:41.695208017",
   "errorCount" : 3,
   "errors" : [ {
-    "field" : "username",
+    "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -87,7 +204,7 @@ Content-Length: 587
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "password",
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -106,7 +223,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 653
+Content-Length: 652
 
 {
   "status" : 200,
@@ -123,12 +240,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-14T12:13:39.056285883",
-    "lastModifiedAt" : "2022-06-14T12:13:39.056291883",
+    "createdAt" : "2022-06-20T12:01:41.731525213",
+    "lastModifiedAt" : "2022-06-20T12:01:41.731530213",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-14T12:13:39.071360689",
+  "timestamp" : "2022-06-20T12:01:41.73803773",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -158,8 +275,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-14T12:13:39.088958313",
-  "lastModifiedAt" : "2022-06-14T12:13:39.088975314",
+  "createdAt" : "2022-06-20T12:01:41.757823983",
+  "lastModifiedAt" : "2022-06-20T12:01:41.757836683",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -168,12 +285,25 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-X-Frame-Options: DENY</code></pre>
+X-Frame-Options: DENY
+Content-Length: 216
+
+{
+  "status" : 400,
+  "title" : null,
+  "detail" : null,
+  "timestamp" : "2022-06-20T12:01:41.765267102",
+  "errorCount" : 0,
+  "errors" : null,
+  "message" : "Record Not Found",
+  "path" : "/api/v1/manage/users/1"
+}</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -203,12 +333,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-14T12:13:39.120324535",
-    "lastModifiedAt" : "2022-06-14T12:13:39.120336435",
+    "createdAt" : "2022-06-20T12:01:41.811802225",
+    "lastModifiedAt" : "2022-06-20T12:01:41.811814425",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-14T12:13:39.123161455",
+  "timestamp" : "2022-06-20T12:01:41.815041634",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -235,13 +365,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 205
+Content-Length: 203
 
 {
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2022-06-14T12:13:39.112145677",
+  "timestamp" : "2022-06-20T12:01:41.8020687",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -255,7 +385,7 @@ Content-Length: 205
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-14 12:13:25 UTC
+Last updated 2022-06-20 12:01:21 UTC
 </div>
 </div>
 </div>
