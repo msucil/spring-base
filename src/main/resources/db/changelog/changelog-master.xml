@@ -32,4 +32,22 @@
       <column name="permanent_delete" type="BOOLEAN" defaultValueBoolean="false"/>
     </createTable>
   </changeSet>
+
+  <changeSet id="create-privilege-20220621" author="msucil">
+    <createTable tableName="privilege">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="name" type="VARCHAR(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="created_at" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="add-system-admin-privilege-20220621" author="msucil">
+    <insert tableName="privilege">
+      <column name="name" value="SYSTEM_ADMIN"/>
+    </insert>
+  </changeSet>
 </databaseChangeLog>
