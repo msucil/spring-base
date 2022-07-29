@@ -48,10 +48,14 @@ Content-Length: 908
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-06-20T12:06:52.737783253",
+  "timestamp" : "2022-07-29T06:20:50.841330023",
   "errorCount" : 6,
   "errors" : [ {
-    "field" : "username",
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "verifyPassword",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -65,13 +69,9 @@ Content-Length: 908
   }, {
     "field" : "password",
     "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
-    "field" : "password",
-    "rejectedValue" : null,
     "message" : "Properties does not match"
   }, {
-    "field" : "verifyPassword",
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -90,13 +90,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 246
+Content-Length: 247
 
 {
   "status" : 403,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2022-06-20T12:06:52.79360005",
+  "timestamp" : "2022-07-29T06:20:50.863743555",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Can not create System User. Users already exists.",
@@ -131,12 +131,12 @@ Content-Length: 655
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:06:52.277444019",
-    "lastModifiedAt" : "2022-06-20T12:06:52.277500923",
+    "createdAt" : "2022-07-29T06:20:50.455176714",
+    "lastModifiedAt" : "2022-07-29T06:20:50.455197015",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:06:52.557115647",
+  "timestamp" : "2022-07-29T06:20:50.684097299",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -170,8 +170,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-20T12:06:53.754540961",
-  "lastModifiedAt" : "2022-06-20T12:06:53.754561462",
+  "createdAt" : "2022-07-29T06:20:51.562736988",
+  "lastModifiedAt" : "2022-07-29T06:20:51.562756189",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -193,10 +193,10 @@ Content-Length: 587
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-06-20T12:06:53.721571625",
+  "timestamp" : "2022-07-29T06:20:51.531316324",
   "errorCount" : 3,
   "errors" : [ {
-    "field" : "email",
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -204,7 +204,7 @@ Content-Length: 587
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "username",
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -240,12 +240,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:06:53.754580062",
-    "lastModifiedAt" : "2022-06-20T12:06:53.754585262",
+    "createdAt" : "2022-07-29T06:20:51.562776689",
+    "lastModifiedAt" : "2022-07-29T06:20:51.562781889",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:06:53.759831031",
+  "timestamp" : "2022-07-29T06:20:51.566192639",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -275,8 +275,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-06-20T12:06:53.787458897",
-  "lastModifiedAt" : "2022-06-20T12:06:53.787476997",
+  "createdAt" : "2022-07-29T06:20:51.584650712",
+  "lastModifiedAt" : "2022-07-29T06:20:51.584670613",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -298,7 +298,7 @@ Content-Length: 216
   "status" : 400,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2022-06-20T12:06:53.800101164",
+  "timestamp" : "2022-07-29T06:20:51.600574648",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Record Not Found",
@@ -333,12 +333,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-06-20T12:06:53.864633018",
-    "lastModifiedAt" : "2022-06-20T12:06:53.864645718",
+    "createdAt" : "2022-07-29T06:20:51.655094654",
+    "lastModifiedAt" : "2022-07-29T06:20:51.655115554",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-06-20T12:06:53.870170291",
+  "timestamp" : "2022-07-29T06:20:51.662330461",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -371,7 +371,7 @@ Content-Length: 205
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2022-06-20T12:06:53.845544265",
+  "timestamp" : "2022-07-29T06:20:51.636717682",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -385,7 +385,7 @@ Content-Length: 205
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-20 12:06:35 UTC
+Last updated 2022-07-29 06:19:56 UTC
 </div>
 </div>
 </div>
