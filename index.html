@@ -168,14 +168,18 @@ Content-Length: 908
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2023-04-03T04:15:19.281668701",
+  "timestamp" : "2023-04-03T04:15:50.211399746",
   "errorCount" : 6,
   "errors" : [ {
-    "field" : "username",
+    "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "fullName",
+    "field" : "verifyPassword",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -187,11 +191,7 @@ Content-Length: 908
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "password",
-    "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
-    "field" : "verifyPassword",
+    "field" : "fullName",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -210,13 +210,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 247
+Content-Length: 246
 
 {
   "status" : 403,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2023-04-03T04:15:19.332113033",
+  "timestamp" : "2023-04-03T04:15:50.25031749",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Can not create System User. Users already exists.",
@@ -234,7 +234,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 654
+Content-Length: 655
 
 {
   "status" : 200,
@@ -251,12 +251,12 @@ Content-Length: 654
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:15:19.204449816",
-    "lastModifiedAt" : "2023-04-03T04:15:19.204467515",
+    "createdAt" : "2023-04-03T04:15:50.093278326",
+    "lastModifiedAt" : "2023-04-03T04:15:50.093297626",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:15:19.23205166",
+  "timestamp" : "2023-04-03T04:15:50.146100143",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -290,8 +290,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2023-04-03T04:15:18.566140827",
-  "lastModifiedAt" : "2023-04-03T04:15:18.566158827",
+  "createdAt" : "2023-04-03T04:15:49.072357757",
+  "lastModifiedAt" : "2023-04-03T04:15:49.072376757",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -307,20 +307,20 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 586
+Content-Length: 587
 
 {
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2023-04-03T04:15:18.46538226",
+  "timestamp" : "2023-04-03T04:15:48.949077283",
   "errorCount" : 3,
   "errors" : [ {
-    "field" : "password",
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "email",
+    "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -360,12 +360,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:15:18.566177826",
-    "lastModifiedAt" : "2023-04-03T04:15:18.566182726",
+    "createdAt" : "2023-04-03T04:15:49.072401356",
+    "lastModifiedAt" : "2023-04-03T04:15:49.072442756",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:15:18.577844918",
+  "timestamp" : "2023-04-03T04:15:49.088885106",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -395,8 +395,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2023-04-03T04:15:18.600162112",
-  "lastModifiedAt" : "2023-04-03T04:15:18.600178612",
+  "createdAt" : "2023-04-03T04:15:49.128249146",
+  "lastModifiedAt" : "2023-04-03T04:15:49.128267146",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -418,7 +418,7 @@ Content-Length: 216
   "status" : 400,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2023-04-03T04:15:18.610458016",
+  "timestamp" : "2023-04-03T04:15:49.149804149",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Record Not Found",
@@ -436,7 +436,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 648
+Content-Length: 653
 
 {
   "status" : 200,
@@ -453,12 +453,12 @@ Content-Length: 648
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:15:18.655417",
-    "lastModifiedAt" : "2023-04-03T04:15:18.6554302",
+    "createdAt" : "2023-04-03T04:15:49.221781891",
+    "lastModifiedAt" : "2023-04-03T04:15:49.221801091",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:15:18.658772669",
+  "timestamp" : "2023-04-03T04:15:49.229108124",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -491,7 +491,7 @@ Content-Length: 205
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2023-04-03T04:15:18.645584791",
+  "timestamp" : "2023-04-03T04:15:49.203006163",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -505,7 +505,7 @@ Content-Length: 205
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-03 04:14:28 UTC
+Last updated 2023-04-03 04:14:50 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
