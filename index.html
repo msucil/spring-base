@@ -168,18 +168,10 @@ Content-Length: 908
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-11-27T05:15:07.504974631",
+  "timestamp" : "2023-04-03T04:15:19.281668701",
   "errorCount" : 6,
   "errors" : [ {
-    "field" : "password",
-    "rejectedValue" : null,
-    "message" : "Properties does not match"
-  }, {
     "field" : "username",
-    "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
-    "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -187,11 +179,19 @@ Content-Length: 908
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "verifyPassword",
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : "Properties does not match"
+  }, {
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "email",
+    "field" : "password",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "verifyPassword",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -216,7 +216,7 @@ Content-Length: 247
   "status" : 403,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2022-11-27T05:15:07.572989952",
+  "timestamp" : "2023-04-03T04:15:19.332113033",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Can not create System User. Users already exists.",
@@ -234,7 +234,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 655
+Content-Length: 654
 
 {
   "status" : 200,
@@ -251,12 +251,12 @@ Content-Length: 655
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-11-27T05:15:07.184406961",
-    "lastModifiedAt" : "2022-11-27T05:15:07.184430261",
+    "createdAt" : "2023-04-03T04:15:19.204449816",
+    "lastModifiedAt" : "2023-04-03T04:15:19.204467515",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-11-27T05:15:07.345110547",
+  "timestamp" : "2023-04-03T04:15:19.23205166",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -290,8 +290,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2022-11-27T05:15:08.590967562",
-  "lastModifiedAt" : "2022-11-27T05:15:08.590997462",
+  "createdAt" : "2023-04-03T04:15:18.566140827",
+  "lastModifiedAt" : "2023-04-03T04:15:18.566158827",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -307,122 +307,29 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 587
+Content-Length: 586
 
 {
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2022-11-27T05:15:08.563574714",
+  "timestamp" : "2023-04-03T04:15:18.46538226",
   "errorCount" : 3,
   "errors" : [ {
     "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "username",
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "email",
+    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
   "message" : "Request can not be processed due to one or more validation error",
   "path" : "/api/v1/manage/users"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-X-Frame-Options: DENY
-Content-Length: 652
-
-{
-  "status" : 200,
-  "title" : null,
-  "detail" : {
-    "id" : 1,
-    "username" : "username",
-    "password" : "Password",
-    "fullName" : "System",
-    "email" : "email@gmail.com",
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true,
-    "credentialsExpiryDate" : null,
-    "version" : 0,
-    "createdAt" : "2022-11-27T05:15:08.591019062",
-    "lastModifiedAt" : "2022-11-27T05:15:08.591024362",
-    "permanentDelete" : false,
-    "authorities" : [ ]
-  },
-  "timestamp" : "2022-11-27T05:15:08.59548037",
-  "errorCount" : 0,
-  "errors" : null,
-  "message" : null,
-  "path" : null
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_update_user"><a class="anchor" href="#_update_user"></a><a class="link" href="#_update_user">Update User</a></h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /api/v1/manage/users/1 HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Content-Length: 443
-Host: localhost:8080
-
-{
-  "id" : 1,
-  "username" : "username",
-  "password" : "Password",
-  "fullName" : "System",
-  "email" : "email@gmail.com",
-  "enabled" : true,
-  "accountNonExpired" : true,
-  "accountNonLocked" : true,
-  "credentialsNonExpired" : true,
-  "credentialsExpiryDate" : null,
-  "version" : 0,
-  "createdAt" : "2022-11-27T05:15:08.615646506",
-  "lastModifiedAt" : "2022-11-27T05:15:08.615665706",
-  "permanentDelete" : false,
-  "authorities" : [ ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-X-Frame-Options: DENY
-Content-Length: 216
-
-{
-  "status" : 400,
-  "title" : null,
-  "detail" : null,
-  "timestamp" : "2022-11-27T05:15:08.626753026",
-  "errorCount" : 0,
-  "errors" : null,
-  "message" : "Record Not Found",
-  "path" : "/api/v1/manage/users/1"
 }</code></pre>
 </div>
 </div>
@@ -453,12 +360,105 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2022-11-27T05:15:08.664120392",
-    "lastModifiedAt" : "2022-11-27T05:15:08.664132792",
+    "createdAt" : "2023-04-03T04:15:18.566177826",
+    "lastModifiedAt" : "2023-04-03T04:15:18.566182726",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2022-11-27T05:15:08.667755299",
+  "timestamp" : "2023-04-03T04:15:18.577844918",
+  "errorCount" : 0,
+  "errors" : null,
+  "message" : null,
+  "path" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_user"><a class="anchor" href="#_update_user"></a><a class="link" href="#_update_user">Update User</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /api/v1/manage/users/1 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 443
+Host: localhost:8080
+
+{
+  "id" : 1,
+  "username" : "username",
+  "password" : "Password",
+  "fullName" : "System",
+  "email" : "email@gmail.com",
+  "enabled" : true,
+  "accountNonExpired" : true,
+  "accountNonLocked" : true,
+  "credentialsNonExpired" : true,
+  "credentialsExpiryDate" : null,
+  "version" : 0,
+  "createdAt" : "2023-04-03T04:15:18.600162112",
+  "lastModifiedAt" : "2023-04-03T04:15:18.600178612",
+  "permanentDelete" : false,
+  "authorities" : [ ]
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 216
+
+{
+  "status" : 400,
+  "title" : null,
+  "detail" : null,
+  "timestamp" : "2023-04-03T04:15:18.610458016",
+  "errorCount" : 0,
+  "errors" : null,
+  "message" : "Record Not Found",
+  "path" : "/api/v1/manage/users/1"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 648
+
+{
+  "status" : 200,
+  "title" : null,
+  "detail" : {
+    "id" : 1,
+    "username" : "username",
+    "password" : "Password",
+    "fullName" : "System",
+    "email" : "email@gmail.com",
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true,
+    "credentialsExpiryDate" : null,
+    "version" : 0,
+    "createdAt" : "2023-04-03T04:15:18.655417",
+    "lastModifiedAt" : "2023-04-03T04:15:18.6554302",
+    "permanentDelete" : false,
+    "authorities" : [ ]
+  },
+  "timestamp" : "2023-04-03T04:15:18.658772669",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -485,13 +485,13 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 204
+Content-Length: 205
 
 {
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2022-11-27T05:15:08.65181117",
+  "timestamp" : "2023-04-03T04:15:18.645584791",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -505,7 +505,7 @@ Content-Length: 204
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-11-27 05:13:56 UTC
+Last updated 2023-04-03 04:14:28 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
