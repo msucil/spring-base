@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.18">
 <title>API GUIDE</title>
 <link rel="stylesheet" href="css/site.css">
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
@@ -168,18 +168,14 @@ Content-Length: 908
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2023-04-03T04:17:14.672499793",
+  "timestamp" : "2023-04-04T04:50:11.546541934",
   "errorCount" : 6,
   "errors" : [ {
     "field" : "password",
     "rejectedValue" : null,
     "message" : "Properties does not match"
   }, {
-    "field" : "username",
-    "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
-    "field" : "fullName",
+    "field" : "email",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
@@ -191,7 +187,11 @@ Content-Length: 908
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
-    "field" : "email",
+    "field" : "username",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
+    "field" : "fullName",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -216,7 +216,7 @@ Content-Length: 247
   "status" : 403,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2023-04-03T04:17:14.710225714",
+  "timestamp" : "2023-04-04T04:50:11.574512949",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Can not create System User. Users already exists.",
@@ -234,7 +234,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 655
+Content-Length: 654
 
 {
   "status" : 200,
@@ -251,12 +251,12 @@ Content-Length: 655
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:17:14.564634861",
-    "lastModifiedAt" : "2023-04-03T04:17:14.564654161",
+    "createdAt" : "2023-04-04T04:50:11.49362081",
+    "lastModifiedAt" : "2023-04-04T04:50:11.493638911",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:17:14.622378699",
+  "timestamp" : "2023-04-04T04:50:11.522142563",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -290,8 +290,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2023-04-03T04:17:13.397681358",
-  "lastModifiedAt" : "2023-04-03T04:17:13.397700458",
+  "createdAt" : "2023-04-04T04:50:10.726938413",
+  "lastModifiedAt" : "2023-04-04T04:50:10.726955014",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -313,18 +313,18 @@ Content-Length: 587
   "status" : 400,
   "title" : "Validation Failed",
   "detail" : null,
-  "timestamp" : "2023-04-03T04:17:13.251422191",
+  "timestamp" : "2023-04-04T04:50:10.597243632",
   "errorCount" : 3,
   "errors" : [ {
+    "field" : "username",
+    "rejectedValue" : null,
+    "message" : " can not be null or blank"
+  }, {
     "field" : "password",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   }, {
     "field" : "email",
-    "rejectedValue" : null,
-    "message" : " can not be null or blank"
-  }, {
-    "field" : "username",
     "rejectedValue" : null,
     "message" : " can not be null or blank"
   } ],
@@ -360,12 +360,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:17:13.397723758",
-    "lastModifiedAt" : "2023-04-03T04:17:13.397730358",
+    "createdAt" : "2023-04-04T04:50:10.726972115",
+    "lastModifiedAt" : "2023-04-04T04:50:10.726976115",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:17:13.413973554",
+  "timestamp" : "2023-04-04T04:50:10.739800093",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -380,7 +380,7 @@ Content-Length: 653
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /api/v1/manage/users/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 442
+Content-Length: 443
 Host: localhost:8080
 
 {
@@ -395,8 +395,8 @@ Host: localhost:8080
   "credentialsNonExpired" : true,
   "credentialsExpiryDate" : null,
   "version" : 0,
-  "createdAt" : "2023-04-03T04:17:13.451952079",
-  "lastModifiedAt" : "2023-04-03T04:17:13.45196658",
+  "createdAt" : "2023-04-04T04:50:10.760595517",
+  "lastModifiedAt" : "2023-04-04T04:50:10.760609518",
   "permanentDelete" : false,
   "authorities" : [ ]
 }</code></pre>
@@ -418,7 +418,7 @@ Content-Length: 216
   "status" : 400,
   "title" : null,
   "detail" : null,
-  "timestamp" : "2023-04-03T04:17:13.483879169",
+  "timestamp" : "2023-04-04T04:50:10.770548499",
   "errorCount" : 0,
   "errors" : null,
   "message" : "Record Not Found",
@@ -453,12 +453,12 @@ Content-Length: 653
     "credentialsNonExpired" : true,
     "credentialsExpiryDate" : null,
     "version" : 0,
-    "createdAt" : "2023-04-03T04:17:13.557101203",
-    "lastModifiedAt" : "2023-04-03T04:17:13.557119203",
+    "createdAt" : "2023-04-04T04:50:10.798761931",
+    "lastModifiedAt" : "2023-04-04T04:50:10.798773632",
     "permanentDelete" : false,
     "authorities" : [ ]
   },
-  "timestamp" : "2023-04-03T04:17:13.565304751",
+  "timestamp" : "2023-04-04T04:50:10.802063557",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -491,7 +491,7 @@ Content-Length: 205
   "status" : 200,
   "title" : null,
   "detail" : "User Deleted Successfully",
-  "timestamp" : "2023-04-03T04:17:13.537142884",
+  "timestamp" : "2023-04-04T04:50:10.790058935",
   "errorCount" : 0,
   "errors" : null,
   "message" : null,
@@ -505,14 +505,14 @@ Content-Length: 205
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-03 04:15:18 UTC
+Last updated 2023-04-04 04:49:28 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
 <script>
 if (!hljs.initHighlighting.called) {
   hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
 }
 </script>
 </div>
